@@ -35,13 +35,13 @@ export const Header = () => {
         <div
           className={`flex items-center justify-between rounded-full border px-2 py-2 transition-all duration-500 ${
             scrolled
-              ? "border-ink/10 bg-paper/90 text-ink backdrop-blur-xl shadow-card"
-              : "border-paper/15 bg-ink/40 text-paper backdrop-blur-md"
+              ? "border-foreground/10 bg-background/90 text-foreground backdrop-blur-xl shadow-card"
+              : "border-foreground/15 bg-background/40 text-foreground backdrop-blur-md"
           }`}
         >
           <Link to="/" className="flex items-center gap-2 pl-2">
             <span className={`grid h-9 w-9 place-items-center rounded-xl font-display font-bold transition-colors ${
-              scrolled ? "bg-ink text-paper" : "bg-brand text-brand-foreground"
+              scrolled ? "bg-foreground text-background" : "bg-brand text-brand-foreground"
             }`}>
               E
             </span>
@@ -59,8 +59,8 @@ export const Header = () => {
                   to={l.to}
                   className={`rounded-full px-4 py-2 text-sm font-medium transition-colors ${
                     scrolled
-                      ? `${active ? "bg-ink text-paper" : "text-ink/70 hover:bg-paper-muted hover:text-ink"}`
-                      : `${active ? "bg-paper text-ink" : "text-paper/80 hover:bg-paper/10 hover:text-paper"}`
+                      ? `${active ? "bg-foreground text-background" : "text-foreground/70 hover:bg-background hover:text-foreground"}`
+                      : `${active ? "bg-background text-foreground" : "text-foreground/80 hover:bg-background hover:text-foreground"}`
                   }`}
                 >
                   {l.label}
@@ -76,8 +76,8 @@ export const Header = () => {
               rel="noreferrer"
               className={`grid h-10 w-10 place-items-center rounded-full border transition-colors ${
                 scrolled
-                  ? "border-ink/10 text-ink hover:bg-ink hover:text-paper"
-                  : "border-paper/20 text-paper hover:bg-paper hover:text-ink"
+                  ? "border-foreground/10 text-foreground hover:bg-foreground hover:text-background"
+                  : "border-foreground/20 text-foreground hover:bg-background hover:text-foreground"
               }`}
               aria-label="Chat on WhatsApp"
             >
@@ -90,7 +90,7 @@ export const Header = () => {
 
           <button
             className={`grid h-10 w-10 place-items-center rounded-full border md:hidden ${
-              scrolled ? "border-ink/10 text-ink" : "border-paper/20 text-paper"
+              scrolled ? "border-foreground/10 text-foreground" : "border-foreground/20 text-foreground"
             }`}
             onClick={() => setOpen((o) => !o)}
             aria-label="Toggle menu"
@@ -100,14 +100,14 @@ export const Header = () => {
         </div>
 
         {open && (
-          <div className="mt-2 rounded-3xl border border-ink/10 bg-paper p-4 shadow-card md:hidden">
+          <div className="mt-2 rounded-3xl border border-foreground/10 bg-background p-4 shadow-card md:hidden">
             <div className="flex flex-col">
               {links.map((l) => (
                 <Link
                   key={l.to}
                   to={l.to}
                   onClick={() => setOpen(false)}
-                  className="rounded-xl px-4 py-3 text-sm font-medium text-ink/80 hover:bg-paper-muted"
+                  className="rounded-xl px-4 py-3 text-sm font-medium text-foreground/80 hover:bg-background"
                 >
                   {l.label}
                 </Link>

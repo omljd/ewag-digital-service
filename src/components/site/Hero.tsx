@@ -2,7 +2,7 @@ import { ArrowRight, MessageCircle, Sparkles } from "lucide-react";
 
 export const Hero = () => {
   return (
-    <section id="home" className="relative overflow-hidden bg-ink text-paper">
+    <section id="home" className="relative overflow-hidden bg-background text-foreground">
       {/* background grid + glow */}
       <div className="absolute inset-0 grid-lines opacity-60" />
       <div className="absolute inset-0 bg-gradient-radial-brand" />
@@ -10,7 +10,7 @@ export const Hero = () => {
 
       <div className="container-x relative pt-36 pb-28 md:pt-44 md:pb-36">
         <div className="mx-auto flex max-w-4xl flex-col items-center text-center">
-          <span className="chip-dark mb-6 animate-fade-up">
+          <span className="chip mb-6 animate-fade-up">
             <Sparkles className="h-3.5 w-3.5 text-brand" />
             Automation-first digital growth agency
           </span>
@@ -19,7 +19,7 @@ export const Hero = () => {
             Automate.<br />
             Generate.{" "}
             <span className="relative inline-block">
-              <span className="bg-gradient-brand bg-clip-text text-transparent">Grow.</span>
+              <span className="text-foreground">Grow.</span>
               <svg
                 viewBox="0 0 200 12"
                 className="absolute -bottom-2 left-0 h-3 w-full text-brand"
@@ -30,7 +30,7 @@ export const Hero = () => {
             </span>
           </h1>
 
-          <p className="mt-8 max-w-2xl text-lg leading-relaxed text-paper/70 md:text-xl animate-fade-up" style={{ animationDelay: "140ms" }}>
+          <p className="mt-8 max-w-2xl text-lg leading-relaxed text-foreground/80 md:text-xl animate-fade-up" style={{ animationDelay: "140ms" }}>
             We build websites, AI content, and automation systems that help businesses attract customers and grow faster.
           </p>
 
@@ -42,13 +42,13 @@ export const Hero = () => {
               href="https://wa.me/918766910241?text=hello%20sanket"
               target="_blank"
               rel="noreferrer"
-              className="btn-ghost-paper"
+              className="inline-flex items-center gap-2 rounded-full border-2 border-foreground px-6 py-3 font-semibold text-foreground transition-colors hover:bg-foreground hover:text-background"
             >
               <MessageCircle className="h-4 w-4" /> Chat on WhatsApp
             </a>
           </div>
 
-          <p className="mt-12 max-w-xl text-sm italic text-paper/50 animate-fade-up" style={{ animationDelay: "300ms" }}>
+          <p className="mt-12 max-w-xl text-sm italic text-foreground/60 animate-fade-up" style={{ animationDelay: "300ms" }}>
             "We don't just create websites. We build systems that bring customers automatically."
           </p>
         </div>
@@ -61,11 +61,11 @@ export const Hero = () => {
             { k: "24/7", v: "Automated follow-up" },
             { k: "9 / 10", v: "Client retention" },
           ].map((m) => (
-            <div key={m.v} className="bg-ink p-6 text-center md:p-8">
-              <div className="font-display text-3xl font-bold text-paper md:text-4xl">
+            <div key={m.v} className="bg-background p-6 text-center md:p-8 border border-foreground/20">
+              <div className="font-display text-3xl font-bold text-foreground md:text-4xl">
                 {m.k}
               </div>
-              <div className="mt-1 text-xs uppercase tracking-widest text-paper/50">
+              <div className="mt-1 text-xs uppercase tracking-widest text-foreground/70">
                 {m.v}
               </div>
             </div>
