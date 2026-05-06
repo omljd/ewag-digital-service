@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, MessageCircle, Sparkles, ShoppingBag, Check } from "lucide-react";
+import { openConsultationModal } from "@/lib/modal-store";
 
 const services = [
   "GEO / AEO", "SEO", "Paid Media",
@@ -35,7 +36,7 @@ export const Hero = () => {
               Automation-first digital growth agency
             </span>
 
-            <h1 className="font-display text-4xl font-bold leading-[0.95] tracking-tight text-balance md:text-6xl lg:text-7xl animate-fade-up hover:scale-[1.02] transition-transform duration-700" style={{ animationDelay: "60ms" }}>
+            <h1 className="font-display text-3xl font-bold leading-[0.95] tracking-tight text-balance md:text-5xl lg:text-6xl animate-fade-up hover:scale-[1.02] transition-transform duration-700" style={{ animationDelay: "60ms" }}>
               Automate.<br />
               Generate.{" "}
               <span className="relative inline-block text-brand">
@@ -55,9 +56,9 @@ export const Hero = () => {
             </p>
 
             <div className="mt-8 flex flex-wrap items-center gap-3 animate-fade-up" style={{ animationDelay: "220ms" }}>
-              <Link to="/book-consultation" className="btn-brand">
+              <button onClick={openConsultationModal} className="btn-brand">
                 Book Free Consultation <ArrowRight className="h-4 w-4" />
-              </Link>
+              </button>
               <a
                 href="https://wa.me/918766910241?text=hello%20sanket"
                 target="_blank"
@@ -104,9 +105,9 @@ export const Hero = () => {
                 })}
               </div>
 
-              <Link to="/book-consultation" className="btn-brand mt-6 w-full py-3 text-center text-base">
+              <button onClick={openConsultationModal} className="btn-brand mt-6 w-full py-3 text-center text-base">
                 Get started
-              </Link>
+              </button>
 
               <p className="mt-4 text-center text-xs text-foreground/40">
                 Pick your goals and let's build your plan.

@@ -3,6 +3,7 @@ import { Menu, X, MessageCircle } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 
 import { motion } from "framer-motion";
+import { openConsultationModal } from "@/lib/modal-store";
 
 const links = [
   { label: "Home", to: "/" },
@@ -87,9 +88,9 @@ export const Header = () => {
             >
               <MessageCircle className="h-4 w-4" />
             </a>
-            <Link to="/book-consultation" className="btn-brand py-2.5 text-sm">
+            <button onClick={openConsultationModal} className="btn-brand py-2.5 text-sm">
               Book Consultation
-            </Link>
+            </button>
           </div>
 
           <button
@@ -116,9 +117,9 @@ export const Header = () => {
                   {l.label}
                 </Link>
               ))}
-              <Link to="/book-consultation" onClick={() => setOpen(false)} className="btn-brand mt-2">
+              <button onClick={() => { setOpen(false); openConsultationModal(); }} className="btn-brand mt-2">
                 Book Consultation
-              </Link>
+              </button>
             </div>
           </div>
         )}

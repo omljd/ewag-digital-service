@@ -35,7 +35,7 @@ export const Contact = () => {
           {/* Left */}
           <div>
             <span className="chip mb-5">Let's talk</span>
-            <h2 className="font-display text-4xl font-bold leading-[1.02] text-balance md:text-6xl">
+            <h2 className="font-display text-2xl font-bold leading-[1.02] text-balance md:text-4xl">
               Let's build your <span className="text-brand">growth system</span>.
             </h2>
             <p className="mt-6 max-w-md text-ink/60">

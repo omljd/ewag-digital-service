@@ -34,7 +34,7 @@ export const WhatWeDo = () => {
         <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
           <div className="max-w-xl">
             <span className="chip mb-5">What we do</span>
-            <h2 className="font-display text-4xl font-bold leading-[1.05] text-balance md:text-6xl">
+            <h2 className="font-display text-2xl font-bold leading-[1.05] text-balance md:text-4xl">
               Four building blocks of a <span className="text-brand">growth system</span>.
             </h2>
           </div>

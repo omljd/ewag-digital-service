@@ -15,7 +15,7 @@ export const HowWeHelp = () => {
       <div className="container-x grid gap-10 lg:grid-cols-2 lg:gap-16 lg:items-start">
         <div>
           <span className="chip mb-5">How we help</span>
-          <h2 className="font-display text-4xl font-bold leading-[1.05] text-balance md:text-5xl lg:text-6xl">
+          <h2 className="font-display text-2xl font-bold leading-[1.05] text-balance md:text-4xl lg:text-5xl">
             We build <span className="text-brand">systems</span>, not just designs.
           </h2>
           <p className="mt-6 max-w-lg text-ink/70">

@@ -2,6 +2,7 @@ import { PageShell } from "@/components/site/PageShell";
 import { PageHero } from "@/components/site/PageHero";
 import { ArrowUpRight, ExternalLink, Quote } from "lucide-react";
 import { Link } from "react-router-dom";
+import { openConsultationModal } from "@/lib/modal-store";
 import { useState } from "react";
 
 const portfolio = [
@@ -249,13 +250,13 @@ const PortfolioPage = () => {
                 Every project in our portfolio started with a conversation. 
                 Let's discuss how we can help you achieve similar results.
               </p>
-              <Link 
-                to="/book-consultation"
+              <button 
+                onClick={openConsultationModal}
                 className="btn-brand inline-flex items-center gap-2"
               >
                 Start your project
                 <ArrowUpRight className="h-4 w-4" />
-              </Link>
+              </button>
             </div>
           </div>
         </div>

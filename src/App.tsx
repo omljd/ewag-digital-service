@@ -13,6 +13,7 @@ import PortfolioPage from "./pages/PortfolioPage.tsx";
 import ContactPage from "./pages/ContactPage.tsx";
 import AboutPage from "./pages/AboutPage.tsx";
 import BookConsultationPage from "./pages/BookConsultationPage.tsx";
+import { ConsultationModal } from "./components/site/ConsultationModal";
 
 const queryClient = new QueryClient();
 
@@ -21,6 +22,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
+      <ConsultationModal />
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />

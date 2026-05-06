@@ -12,7 +12,7 @@ export const Process = () => {
       <div className="container-x">
         <div className="mx-auto max-w-2xl text-center">
           <span className="chip mb-5">Our process</span>
-          <h2 className="font-display text-4xl font-bold leading-[1.05] text-balance md:text-6xl">
+          <h2 className="font-display text-2xl font-bold leading-[1.05] text-balance md:text-4xl">
             Five steps to a <span className="text-brand">working growth engine</span>.
           </h2>
         </div>

@@ -15,7 +15,7 @@ export const WhyChoose = () => {
         <div className="grid gap-8 lg:grid-cols-[1.1fr_1.4fr] lg:gap-14">
           <div className="lg:sticky lg:top-28 lg:self-start">
             <span className="chip mb-5">Why EWAG</span>
-            <h2 className="font-display text-4xl font-bold leading-[1.05] text-balance md:text-5xl lg:text-6xl">
+            <h2 className="font-display text-2xl font-bold leading-[1.05] text-balance md:text-4xl lg:text-5xl">
               The difference is in the <span className="text-brand">system</span>.
             </h2>
             <p className="mt-6 max-w-md text-ink/60">

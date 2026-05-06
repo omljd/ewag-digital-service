@@ -2,6 +2,7 @@ import { PageShell } from "@/components/site/PageShell";
 import { PageHero } from "@/components/site/PageHero";
 import { Building2, Users, Target, Award, Clock, MapPin } from "lucide-react";
 import { Link } from "react-router-dom";
+import { openConsultationModal } from "@/lib/modal-store";
 
 const AboutPage = () => (
   <PageShell
@@ -160,9 +161,9 @@ const AboutPage = () => (
             Let's discuss how we can build a custom growth system for your business.
           </p>
           <div className="mt-10 flex flex-wrap items-center justify-center gap-4 animate-fade-up" style={{ animationDelay: "220ms" }}>
-            <Link to="/book-consultation" className="btn-brand">
+            <button onClick={openConsultationModal} className="btn-brand">
               Book Free Consultation
-            </Link>
+            </button>
             <a
               href="https://wa.me/911234567890"
               target="_blank"

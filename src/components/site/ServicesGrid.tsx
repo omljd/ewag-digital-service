@@ -17,7 +17,7 @@ export const ServicesGrid = () => {
       <div className="container-x">
         <div className="mx-auto text-center px-4 md:px-6 lg:px-8">
           <span className="chip mb-5">Services</span>
-          <h2 className="font-display text-3xl font-bold leading-[1.1] text-balance md:text-5xl lg:text-6xl">
+          <h2 className="font-display text-xl font-bold leading-[1.1] text-balance md:text-3xl lg:text-5xl">
             Everything your business needs to <span className="text-brand">grow online</span>.
           </h2>
         </div>
