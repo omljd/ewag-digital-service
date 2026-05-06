@@ -23,7 +23,7 @@ export const Process = () => {
               key={s.n}
               className="group relative bg-background p-7 transition-colors hover:bg-brand/5"
             >
-              <div className="font-display text-5xl font-bold text-brand">{s.n}</div>
+              <div className="font-display text-5xl font-bold text-ink">{s.n}</div>
               <h3 className="mt-6 font-display text-lg font-semibold text-foreground">
                 {s.title}
               </h3>

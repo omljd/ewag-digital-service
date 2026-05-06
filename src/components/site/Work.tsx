@@ -42,7 +42,7 @@ export const Work = () => {
               <h3 className="mt-8 font-display text-2xl font-semibold md:text-3xl">
                 {w.title}
               </h3>
-              <p className="mt-2 font-display text-xl text-brand">{w.result}</p>
+              <p className="mt-2 font-display text-xl text-ink">{w.result}</p>
               <p className="mt-6 text-xs uppercase tracking-widest text-ink/40">
                 {w.tools}
               </p>

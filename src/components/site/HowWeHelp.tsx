@@ -37,7 +37,7 @@ export const HowWeHelp = () => {
           </div>
         </div>
 
-        <ul className="grid gap-3 sm:grid-cols-2 lg:mt-24">
+        <ul className="grid gap-3 lg:mt-24">
           {outcomes.map((o) => (
             <li
               key={o}
