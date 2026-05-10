@@ -13,8 +13,8 @@ export const Hero = () => {
   const [selectedServices, setSelectedServices] = useState<string[]>([]);
 
   const toggleService = (service: string) => {
-    setSelectedServices(prev => 
-      prev.includes(service) 
+    setSelectedServices(prev =>
+      prev.includes(service)
         ? prev.filter(s => s !== service)
         : [...prev, service]
     );
@@ -28,7 +28,7 @@ export const Hero = () => {
       <div className="pointer-events-none absolute -bottom-32 left-1/2 h-[500px] w-[900px] -translate-x-1/2 rounded-full bg-brand/20 blur-[120px]" />
 
       <div className="container-x relative pt-24 pb-16 md:pt-36 md:pb-24">
-        <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
+        <div className="grid gap-12 lg:grid-cols-[2fr_1fr] lg:items-center">
           {/* Left Column: Content */}
           <div className="flex flex-col items-start text-left">
             <span className="chip mb-10 animate-fade-up">
@@ -37,9 +37,7 @@ export const Hero = () => {
             </span>
 
             <h1 className="font-display text-3xl font-bold leading-[0.95] tracking-tight text-balance md:text-5xl lg:text-6xl animate-fade-up hover:scale-[1.02] transition-transform duration-700" style={{ animationDelay: "60ms" }}>
-              Automate.<br />
-              Generate.{" "}
-              <span className="relative inline-block text-brand">
+              Automate. Generate. <span className="relative inline-block text-brand">
                 <span className="bg-gradient-brand bg-clip-text text-transparent">Grow.</span>
                 <svg
                   viewBox="0 0 200 12"
@@ -51,14 +49,14 @@ export const Hero = () => {
               </span>
             </h1>
 
-            <p className="mt-10 max-w-md text-base leading-relaxed text-foreground/80 md:text-lg animate-fade-up" style={{ animationDelay: "140ms" }}>
-              We build websites, AI content, and automation systems that help businesses attract customers and grow faster.
+            <p className="mt-10 max-w-2xl text-base leading-relaxed text-foreground/80 md:text-lg animate-fade-up" style={{ animationDelay: "140ms" }}>
+              We build websites, AI content, and automation systems that help businesses attract customers, grow faster, and stay ahead of the competition with cutting-edge technology.
             </p>
-            <p className="mt-6 max-w-md text-base leading-relaxed text-foreground/70 animate-fade-up" style={{ animationDelay: "180ms" }}>
-              Our automation-first approach eliminates bottlenecks, allowing your team to focus on high-impact strategy while our systems handle the heavy lifting.
+            <p className="mt-6 max-w-2xl text-base leading-relaxed text-foreground/70 animate-fade-up" style={{ animationDelay: "180ms" }}>
+              Our automation-first approach eliminates bottlenecks, allowing your team to focus on high-impact strategy while our systems handle the heavy lifting and ensure seamless operations.
             </p>
-            <p className="mt-6 max-w-md text-base leading-relaxed text-foreground/70 animate-fade-up" style={{ animationDelay: "220ms" }}>
-              Whether you need a high-converting landing page or a custom AI agent, we deliver technical excellence that translates into measurable business growth.
+            <p className="mt-6 max-w-2xl text-base leading-relaxed text-foreground/70 animate-fade-up" style={{ animationDelay: "220ms" }}>
+              Whether you need a high-converting landing page or a custom AI agent, we deliver technical excellence that translates into measurable business growth and a superior digital experience.
             </p>
 
             <div className="mt-12 flex flex-wrap items-center gap-3 animate-fade-up" style={{ animationDelay: "260ms" }}>
@@ -112,7 +110,7 @@ export const Hero = () => {
               <h3 className="mb-10 font-display text-xl font-bold text-center md:text-2xl">
                 How can we help you <span className="text-brand">get found?</span>
               </h3>
-              
+
               <div className="grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-4">
                 {services.map((s) => {
                   const isSelected = selectedServices.includes(s);
@@ -120,15 +118,13 @@ export const Hero = () => {
                     <button
                       key={s}
                       onClick={() => toggleService(s)}
-                      className={`group flex items-center gap-2 rounded-xl border p-3 transition-all ${
-                        isSelected 
-                          ? "border-brand bg-brand/5 shadow-sm shadow-brand/10" 
-                          : "border-foreground/5 bg-paper-muted hover:border-brand/40 hover:bg-brand/5"
-                      }`}
+                      className={`group flex items-center gap-2 rounded-xl border p-3 transition-all ${isSelected
+                        ? "border-brand bg-brand/5 shadow-sm shadow-brand/10"
+                        : "border-foreground/5 bg-paper-muted hover:border-brand/40 hover:bg-brand/5"
+                        }`}
                     >
-                      <div className={`flex h-5 w-5 shrink-0 items-center justify-center rounded border transition-colors ${
-                        isSelected ? "border-brand bg-brand text-paper" : "border-foreground/20 bg-paper group-hover:border-brand"
-                      }`}>
+                      <div className={`flex h-5 w-5 shrink-0 items-center justify-center rounded border transition-colors ${isSelected ? "border-brand bg-brand text-paper" : "border-foreground/20 bg-paper group-hover:border-brand"
+                        }`}>
                         {isSelected ? <Check className="h-3 w-3" strokeWidth={3} /> : (
                           <div className="h-2 w-2 rounded-sm bg-brand opacity-0 group-hover:opacity-100 transition-opacity" />
                         )}

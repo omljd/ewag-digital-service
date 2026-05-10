@@ -65,7 +65,7 @@ export const Contact = () => {
                 </div>
                 <div className="flex items-center gap-3 rounded-2xl border border-ink/10 bg-paper p-5 transition-colors hover:border-brand">
                   <MapPin className="h-4 w-4 text-brand" />
-                  <span className="text-sm">India · Remote</span>
+                  <span className="text-sm">Pune, Maharashtra · Hybrid</span>
                 </div>
               </div>
               <div className="flex gap-3 pt-2">

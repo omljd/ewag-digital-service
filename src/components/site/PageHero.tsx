@@ -11,9 +11,10 @@ interface PageHeroProps {
   title: React.ReactNode;
   description: string;
   crumbs: Crumb[];
+  showForm?: boolean;
 }
 
-export const PageHero = ({ eyebrow, title, description, crumbs }: PageHeroProps) => {
+export const PageHero = ({ eyebrow, title, description, crumbs, showForm = true }: PageHeroProps) => {
   return (
     <section className="relative overflow-hidden bg-paper-muted text-ink">
       <div className="absolute inset-0 grid-lines opacity-10" />
@@ -21,9 +22,9 @@ export const PageHero = ({ eyebrow, title, description, crumbs }: PageHeroProps)
       <div className="pointer-events-none absolute -bottom-32 left-1/2 h-[420px] w-[800px] -translate-x-1/2 rounded-full bg-brand/10 blur-[120px]" />
 
       <div className="container-x relative pt-24 pb-16 md:pt-32 md:pb-24">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div className={`grid grid-cols-1 gap-8 items-center ${showForm ? "lg:grid-cols-12" : "max-w-4xl"}`}>
           {/* Left Column - Content */}
-          <div className="lg:col-span-7">
+          <div className={showForm ? "lg:col-span-7" : "lg:col-span-12"}>
             {/* Breadcrumbs */}
             <nav aria-label="Breadcrumb" className="mb-8 animate-fade-up">
               <ol className="flex flex-wrap items-center gap-1.5 text-xs font-medium text-ink/60">
@@ -57,7 +58,7 @@ export const PageHero = ({ eyebrow, title, description, crumbs }: PageHeroProps)
                 {title}
               </h1>
               <p
-                className="mt-6 max-w-2xl text-base leading-relaxed text-ink/60 md:text-lg animate-fade-up"
+                className={`mt-6 text-base leading-relaxed text-ink/60 md:text-lg animate-fade-up ${showForm ? "max-w-2xl" : "max-w-3xl"}`}
                 style={{ animationDelay: "140ms" }}
               >
                 {description}
@@ -66,59 +67,61 @@ export const PageHero = ({ eyebrow, title, description, crumbs }: PageHeroProps)
           </div>
 
           {/* Right Column - Contact Form */}
-          <div className="lg:col-span-5 animate-fade-up" style={{ animationDelay: "220ms" }}>
-            <div className="rounded-2xl border border-ink/10 bg-paper backdrop-blur-sm p-5 shadow-card">
-              <h3 className="font-display text-xl font-semibold text-ink mb-3">Get Started</h3>
-              <p className="text-sm text-ink/60 mb-4">Schedule your free consultation</p>
-              
-              <form className="space-y-3">
-                <div>
-                  <input
-                    type="text"
-                    placeholder="Your Name"
-                    className="w-full rounded-lg bg-ink/5 border border-ink/10 px-3.5 py-2.5 text-sm text-ink placeholder:text-ink/40 focus:border-brand/50 focus:outline-none focus:ring-2 focus:ring-brand/20 transition-all"
-                  />
-                </div>
-                <div>
-                  <input
-                    type="email"
-                    placeholder="Email Address"
-                    className="w-full rounded-lg bg-ink/5 border border-ink/10 px-3.5 py-2.5 text-sm text-ink placeholder:text-ink/40 focus:border-brand/50 focus:outline-none focus:ring-2 focus:ring-brand/20 transition-all"
-                  />
-                </div>
-                <div>
-                  <input
-                    type="tel"
-                    placeholder="Phone Number"
-                    className="w-full rounded-lg bg-ink/5 border border-ink/10 px-3.5 py-2.5 text-sm text-ink placeholder:text-ink/40 focus:border-brand/50 focus:outline-none focus:ring-2 focus:ring-brand/20 transition-all"
-                  />
-                </div>
-                <div>
-                  <select
-                    className="w-full rounded-lg bg-ink/5 border border-ink/10 px-4 py-3 text-sm text-ink focus:border-brand/50 focus:outline-none focus:ring-2 focus:ring-brand/20 transition-all"
+          {showForm && (
+            <div className="lg:col-span-5 animate-fade-up" style={{ animationDelay: "220ms" }}>
+              <div className="rounded-2xl border border-ink/10 bg-paper backdrop-blur-sm p-5 shadow-card">
+                <h3 className="font-display text-xl font-semibold text-ink mb-3">Get Started</h3>
+                <p className="text-sm text-ink/60 mb-4">Schedule your free consultation</p>
+                
+                <form className="space-y-3">
+                  <div>
+                    <input
+                      type="text"
+                      placeholder="Your Name"
+                      className="w-full rounded-lg bg-ink/5 border border-ink/10 px-3.5 py-2.5 text-sm text-ink placeholder:text-ink/40 focus:border-brand/50 focus:outline-none focus:ring-2 focus:ring-brand/20 transition-all"
+                    />
+                  </div>
+                  <div>
+                    <input
+                      type="email"
+                      placeholder="Email Address"
+                      className="w-full rounded-lg bg-ink/5 border border-ink/10 px-3.5 py-2.5 text-sm text-ink placeholder:text-ink/40 focus:border-brand/50 focus:outline-none focus:ring-2 focus:ring-brand/20 transition-all"
+                    />
+                  </div>
+                  <div>
+                    <input
+                      type="tel"
+                      placeholder="Phone Number"
+                      className="w-full rounded-lg bg-ink/5 border border-ink/10 px-3.5 py-2.5 text-sm text-ink placeholder:text-ink/40 focus:border-brand/50 focus:outline-none focus:ring-2 focus:ring-brand/20 transition-all"
+                    />
+                  </div>
+                  <div>
+                    <select
+                      className="w-full rounded-lg bg-ink/5 border border-ink/10 px-4 py-3 text-sm text-ink focus:border-brand/50 focus:outline-none focus:ring-2 focus:ring-brand/20 transition-all"
+                    >
+                      <option value="">Select Service</option>
+                      <option value="website">Website Development</option>
+                      <option value="ai">AI Content Solutions</option>
+                      <option value="automation">Marketing Automation</option>
+                      <option value="growth">Growth Systems</option>
+                    </select>
+                  </div>
+                  <button
+                    type="submit"
+                    className="w-full rounded-lg bg-brand px-4 py-2.5 text-sm font-medium text-paper hover:bg-brand/90 transition-colors focus:outline-none focus:ring-2 focus:ring-brand/20"
                   >
-                    <option value="">Select Service</option>
-                    <option value="website">Website Development</option>
-                    <option value="ai">AI Content Solutions</option>
-                    <option value="automation">Marketing Automation</option>
-                    <option value="growth">Growth Systems</option>
-                  </select>
+                    Book Free Consultation
+                  </button>
+                </form>
+                
+                <div className="mt-3 pt-3 border-t border-ink/10">
+                  <p className="text-xs text-ink/40 text-center">
+                    No spam, ever. Your data is secure.
+                  </p>
                 </div>
-                <button
-                  type="submit"
-                  className="w-full rounded-lg bg-brand px-4 py-2.5 text-sm font-medium text-paper hover:bg-brand/90 transition-colors focus:outline-none focus:ring-2 focus:ring-brand/20"
-                >
-                  Book Free Consultation
-                </button>
-              </form>
-              
-              <div className="mt-3 pt-3 border-t border-ink/10">
-                <p className="text-xs text-ink/40 text-center">
-                  No spam, ever. Your data is secure.
-                </p>
               </div>
             </div>
-          </div>
+          )}
         </div>
       </div>
     </section>
