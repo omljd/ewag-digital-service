@@ -19,6 +19,10 @@ import TermsPage from "./pages/TermsPage.tsx";
 import LoginPage from "./pages/admin/LoginPage.tsx";
 import SignupPage from "./pages/admin/SignupPage.tsx";
 import DashboardPage from "./pages/admin/DashboardPage.tsx";
+import ContentPage from "./pages/admin/ContentPage.tsx";
+import ConsultationsPage from "./pages/admin/ConsultationsPage.tsx";
+import TeamPage from "./pages/admin/TeamPage.tsx";
+import SettingsPage from "./pages/admin/SettingsPage.tsx";
 import { ConsultationModal } from "./components/site/ConsultationModal";
 
 const queryClient = new QueryClient();
@@ -48,6 +52,7 @@ const App = () => (
             <Route path="/admin/login" element={<LoginPage />} />
             <Route path="/admin/signup" element={<SignupPage />} />
             <Route path="/admin/dashboard" element={<DashboardPage />} />
+            <Route path="/admin/consultations" element={<ConsultationsPage />} />
             
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />

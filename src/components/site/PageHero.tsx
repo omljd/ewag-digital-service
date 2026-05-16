@@ -16,10 +16,10 @@ interface PageHeroProps {
 
 export const PageHero = ({ eyebrow, title, description, crumbs, showForm = true }: PageHeroProps) => {
   return (
-    <section className="relative overflow-hidden bg-paper-muted text-ink">
-      <div className="absolute inset-0 grid-lines opacity-10" />
-      <div className="absolute inset-0 bg-gradient-radial-brand opacity-30" />
-      <div className="pointer-events-none absolute -bottom-32 left-1/2 h-[420px] w-[800px] -translate-x-1/2 rounded-full bg-brand/10 blur-[120px]" />
+    <section className="relative overflow-hidden bg-background text-foreground">
+      <div className="absolute inset-0 grid-lines opacity-60" />
+      <div className="absolute inset-0 bg-gradient-radial-brand" />
+      <div className="pointer-events-none absolute -bottom-32 left-1/2 h-[500px] w-[900px] -translate-x-1/2 rounded-full bg-brand/20 blur-[120px]" />
 
       <div className="container-x relative pt-24 pb-16 md:pt-32 md:pb-24">
         <div className={`grid grid-cols-1 gap-8 items-center ${showForm ? "lg:grid-cols-12" : "max-w-4xl"}`}>

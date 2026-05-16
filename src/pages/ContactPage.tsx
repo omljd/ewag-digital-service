@@ -8,18 +8,11 @@ const ContactPage = () => (
     title="Contact — EWAG Digital Services"
     description="Book a free consultation. Let's automate your growth."
   >
-    {/* <PageHero
-      eyebrow="Let's talk"
-      title={
-        <>
-          Let's build your <span className="bg-gradient-brand bg-clip-text text-transparent">growth system</span>.
-        </>
-      }
-      description="Tell us about your business — we'll send back a clear plan, a quote and a 30-min consultation slot, usually within the same day."
-      crumbs={[{ label: "Home", to: "/" }, { label: "Contact" }]}
-    /> */}
-    <div className="pt-28">
-      <Contact />
+    <div className="relative pt-24 md:pt-32 bg-background">
+      <div className="absolute inset-0 grid-lines opacity-60" />
+      <div className="absolute inset-0 bg-gradient-radial-brand" />
+      <div className="pointer-events-none absolute -bottom-32 left-1/2 h-[500px] w-[900px] -translate-x-1/2 rounded-full bg-brand/20 blur-[120px]" />
+      <Contact hideBackground={true} />
     </div>
     <StickyWhatsApp />
   </PageShell>

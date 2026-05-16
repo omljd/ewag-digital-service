@@ -38,7 +38,7 @@ const Index = () => {
       <Process />
       <WhyChoose />
       <Work />
-      <Contact />
+      <Contact hideBackground={true} />
       <Footer />
       <StickyWhatsApp />
     </main>

@@ -35,7 +35,7 @@ const AboutPage = () => (
     </section>
 
     {/* Stats Section */}
-    <section className="py-14 bg-paper-muted text-ink">
+    <section className="py-14 bg-paper text-ink">
       <div className="container-x">
         <div className="grid grid-cols-2 gap-px overflow-hidden rounded-3xl border border-ink/10 bg-ink/5 md:grid-cols-4">
           {[

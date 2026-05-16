@@ -8,7 +8,7 @@ const services = [
   "Social Media Creative", "Maintenance & Support",
 ];
 
-export const Contact = () => {
+export const Contact = ({ hideBackground = false }: { hideBackground?: boolean }) => {
   const { toast } = useToast();
   const [submitting, setSubmitting] = useState(false);
 
@@ -26,9 +26,14 @@ export const Contact = () => {
   };
 
   return (
-    <section id="contact" className="relative overflow-hidden bg-paper-muted py-10 text-ink md:py-14">
-      <div className="absolute inset-0 grid-lines opacity-20" />
-      <div className="pointer-events-none absolute -top-40 right-1/4 h-[400px] w-[400px] rounded-full bg-brand/10 blur-[120px]" />
+    <section id="contact" className={`relative overflow-hidden ${hideBackground ? "" : "bg-background"} py-10 text-ink md:py-14`}>
+      {!hideBackground && (
+        <>
+          <div className="absolute inset-0 grid-lines opacity-60" />
+          <div className="absolute inset-0 bg-gradient-radial-brand" />
+          <div className="pointer-events-none absolute -bottom-32 left-1/2 h-[500px] w-[900px] -translate-x-1/2 rounded-full bg-brand/20 blur-[120px]" />
+        </>
+      )}
 
       <div className="container-x relative">
         <div className="grid gap-10 lg:grid-cols-[1fr_1.2fr] lg:gap-12">
@@ -63,10 +68,15 @@ export const Contact = () => {
                   <Phone className="h-4 w-4 text-brand" />
                   <span className="text-sm">+91 98765 43210</span>
                 </div>
-                <div className="flex items-center gap-3 rounded-2xl border border-ink/10 bg-paper p-5 transition-colors hover:border-brand">
-                  <MapPin className="h-4 w-4 text-brand" />
+                <a 
+                  href="https://maps.google.com/?q=Pune,Maharashtra" 
+                  target="_blank" 
+                  rel="noreferrer" 
+                  className="flex items-center gap-3 rounded-2xl border border-ink/10 bg-paper p-5 transition-colors hover:border-brand group/loc"
+                >
+                  <MapPin className="h-4 w-4 text-brand group-hover/loc:scale-110 transition-transform" />
                   <span className="text-sm">Pune, Maharashtra · Hybrid</span>
-                </div>
+                </a>
               </div>
               <div className="flex gap-3 pt-2">
                 {[Instagram, Linkedin].map((Icon, i) => (
@@ -80,14 +90,14 @@ export const Contact = () => {
 
           {/* Form */}
           <form onSubmit={onSubmit} className="rounded-3xl border border-paper/10 bg-paper p-5 text-ink shadow-ink md:p-8">
-            <div className="grid gap-3 sm:grid-cols-2">
+            <div className="grid gap-2 sm:grid-cols-2">
               <Field label="Your Name" name="name" placeholder="Jane Doe" required />
               <Field label="Business Name" name="business" placeholder="Acme Co." required />
               <Field label="Phone" name="phone" placeholder="+91 ..." required />
               <Field label="Email" name="email" type="email" placeholder="you@company.com" required />
               <div className="sm:col-span-2">
                 <Label>Service interested in</Label>
-                <select name="service" className="mt-1.5 w-full rounded-xl border border-ink/10 bg-paper-muted px-3.5 py-2.5 text-sm outline-none transition focus:border-brand focus:bg-paper">
+                <select name="service" className="mt-1 w-full rounded-xl border border-ink/10 bg-ink/[0.03] px-3.5 py-2 text-sm outline-none transition focus:border-brand focus:bg-paper">
                   {services.map((s) => <option key={s}>{s}</option>)}
                 </select>
               </div>
@@ -96,17 +106,17 @@ export const Contact = () => {
                 <Label>Tell us what you need</Label>
                 <textarea
                   name="message"
-                  rows={3}
+                  rows={2}
                   required
                   placeholder="Goals, current challenges, timeline..."
-                  className="mt-1.5 w-full resize-none rounded-xl border border-ink/10 bg-paper-muted px-3.5 py-2.5 text-sm outline-none transition focus:border-brand focus:bg-paper"
+                  className="mt-1 w-full resize-none rounded-xl border border-ink/10 bg-ink/[0.03] px-3.5 py-2 text-sm outline-none transition focus:border-brand focus:bg-paper"
                 />
               </div>
             </div>
             <button
               type="submit"
               disabled={submitting}
-              className="btn-brand mt-4 w-full disabled:opacity-60"
+              className="btn-brand mt-3 w-full disabled:opacity-60"
             >
               {submitting ? "Sending..." : <>Send Inquiry <ArrowRight className="h-4 w-4" /></>}
             </button>
@@ -134,7 +144,7 @@ const Field = ({
       type={type}
       required={required}
       placeholder={placeholder}
-      className="mt-1.5 w-full rounded-xl border border-ink/10 bg-paper-muted px-3.5 py-2.5 text-sm outline-none transition placeholder:text-ink/30 focus:border-brand focus:bg-paper"
+      className="mt-1 w-full rounded-xl border border-ink/10 bg-ink/[0.03] px-3.5 py-2 text-sm outline-none transition placeholder:text-ink/30 focus:border-brand focus:bg-paper"
     />
   </div>
 );

@@ -41,7 +41,7 @@ const BookConsultationPage = () => {
       <Header />
       
       <div className="relative pt-32 pb-20">
-        <div className="absolute inset-0 grid-lines opacity-20" />
+        <div className="absolute inset-0 grid-lines opacity-60" />
         <div className="pointer-events-none absolute top-1/4 right-0 h-[500px] w-[500px] rounded-full bg-brand/5 blur-[120px]" />
         <div className="pointer-events-none absolute bottom-0 left-0 h-[400px] w-[400px] rounded-full bg-brand/10 blur-[100px]" />
 
@@ -59,7 +59,7 @@ const BookConsultationPage = () => {
                     <Calendar className="h-3.5 w-3.5 text-brand" />
                     Consultation
                   </span>
-                  <h1 className="font-display text-4xl font-bold leading-tight tracking-tight md:text-6xl">
+                  <h1 className="font-display text-4xl font-bold leading-tight tracking-tight md:text-6xl text-ink">
                     Ready to <span className="text-brand">automate</span> your growth?
                   </h1>
                   <p className="mt-6 text-lg text-ink/60">
@@ -84,7 +84,7 @@ const BookConsultationPage = () => {
                     ))}
                   </div>
 
-                  <div className="mt-12 rounded-3xl border border-ink/10 bg-paper-muted p-6">
+                  <div className="mt-12 rounded-3xl border border-ink/10 bg-ink/5 p-6">
                     <div className="flex items-center gap-4">
                       <div className="flex -space-x-3">
                         {[1, 2, 3].map((i) => (
@@ -94,7 +94,7 @@ const BookConsultationPage = () => {
                         ))}
                       </div>
                       <div>
-                        <div className="text-sm font-bold">Trusted by 50+ founders</div>
+                        <div className="text-sm font-bold text-ink">Trusted by 50+ founders</div>
                         <div className="flex gap-0.5">
                           {[1, 2, 3, 4, 5].map((s) => (
                             <svg key={s} className="h-3 w-3 fill-brand text-brand" viewBox="0 0 20  20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
@@ -116,7 +116,7 @@ const BookConsultationPage = () => {
                   onSubmit={onSubmit} 
                   className="rounded-[2.5rem] border border-ink/5 bg-paper p-6 shadow-2xl shadow-brand/5 md:p-10"
                 >
-                  <h2 className="mb-8 font-display text-2xl font-bold">Fill in your details</h2>
+                  <h2 className="mb-8 font-display text-2xl font-bold text-ink">Fill in your details</h2>
                   
                   <div className="grid gap-6 sm:grid-cols-2">
                     <Field label="Full Name" name="name" placeholder="John Wick" required />
@@ -135,7 +135,7 @@ const BookConsultationPage = () => {
                             className={`flex items-center gap-2 rounded-xl border px-4 py-3 text-left text-xs font-semibold transition-all ${
                               selectedService === s 
                                 ? "border-brand bg-brand/5 text-brand" 
-                                : "border-ink/5 bg-paper-muted text-ink/60 hover:border-brand/40"
+                                : "border-ink/5 bg-ink/[0.03] text-ink/60 hover:border-brand/40"
                             }`}
                           >
                             <div className={`flex h-4 w-4 shrink-0 items-center justify-center rounded-full border ${selectedService === s ? "border-brand bg-brand" : "border-ink/20"}`}>
@@ -153,7 +153,7 @@ const BookConsultationPage = () => {
                         name="message"
                         rows={4}
                         placeholder="Tell us about your project, current challenges, or what you hope to achieve..."
-                        className="w-full resize-none rounded-2xl border border-ink/10 bg-paper-muted px-4 py-3 text-sm outline-none transition focus:border-brand focus:bg-paper"
+                        className="w-full resize-none rounded-2xl border border-ink/10 bg-ink/[0.03] px-4 py-3 text-sm text-ink outline-none transition focus:border-brand focus:bg-paper"
                       />
                     </div>
                   </div>
@@ -200,7 +200,7 @@ const Field = ({ label, name, type = "text", placeholder, required }: any) => (
       name={name}
       required={required}
       placeholder={placeholder}
-      className="rounded-2xl border border-ink/10 bg-paper-muted px-4 py-3 text-sm outline-none transition focus:border-brand focus:bg-paper placeholder:text-ink/20"
+      className="rounded-2xl border border-ink/10 bg-ink/[0.03] px-4 py-3 text-sm text-ink outline-none transition focus:border-brand focus:bg-paper placeholder:text-ink/20"
     />
   </div>
 );

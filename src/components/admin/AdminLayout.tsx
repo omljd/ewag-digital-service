@@ -11,8 +11,17 @@ import {
   Search,
   ChevronRight,
   MessageSquare,
-  BarChart3
+  BarChart3,
+  Layers,
+  CheckCircle2
 } from "lucide-react";
+import { toast } from "sonner";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 interface AdminLayoutProps {
   children: ReactNode;
@@ -28,10 +37,7 @@ export const AdminLayout = ({ children }: AdminLayoutProps) => {
 
   const navItems = [
     { label: "Dashboard", icon: LayoutDashboard, path: "/admin/dashboard" },
-    { label: "Consultations", icon: MessageSquare, path: "/admin/consultations" },
-    { label: "Analytics", icon: BarChart3, path: "/admin/analytics" },
-    { label: "Team", icon: Users, path: "/admin/team" },
-    { label: "Settings", icon: Settings, path: "/admin/settings" },
+    { label: "Customers", icon: MessageSquare, path: "/admin/consultations" },
   ];
 
   return (
@@ -89,15 +95,55 @@ export const AdminLayout = ({ children }: AdminLayoutProps) => {
             <input 
               type="text" 
               placeholder="Search data, users, settings..." 
+              onKeyDown={(e) => {
+                if (e.key === 'Enter') {
+                  toast.info(`Searching for: ${e.currentTarget.value}`);
+                }
+              }}
               className="w-full pl-11 pr-4 py-2.5 rounded-2xl bg-ink/5 border border-transparent focus:bg-paper focus:border-brand/20 focus:outline-none transition-all text-sm"
             />
           </div>
 
           <div className="flex items-center gap-4">
-            <button className="h-10 w-10 rounded-xl bg-ink/5 flex items-center justify-center hover:bg-ink/10 transition-colors relative">
-              <Bell className="h-4 w-4 text-ink/60" />
-              <span className="absolute top-2.5 right-2.5 h-1.5 w-1.5 rounded-full bg-brand ring-2 ring-paper" />
-            </button>
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <button className="h-10 w-10 rounded-xl bg-ink/5 flex items-center justify-center hover:bg-ink/10 transition-colors relative">
+                  <Bell className="h-4 w-4 text-ink/60" />
+                  <span className="absolute top-2.5 right-2.5 h-1.5 w-1.5 rounded-full bg-brand ring-2 ring-paper" />
+                </button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end" className="w-80 bg-paper border-ink/5 rounded-2xl shadow-xl p-0 overflow-hidden">
+                <div className="p-4 border-b border-ink/5 bg-ink/[0.02]">
+                  <div className="flex justify-between items-center">
+                    <h3 className="text-sm font-bold">Notifications</h3>
+                    <button className="text-[10px] font-bold text-brand hover:underline" onClick={() => toast.success("All caught up!")}>Mark all read</button>
+                  </div>
+                </div>
+                <div className="max-h-96 overflow-y-auto">
+                  {[
+                    { title: "New Inquiry", desc: "Rahul Sharma sent a message.", time: "2m ago", icon: MessageSquare, color: "text-brand", bg: "bg-brand/10" },
+                    { title: "Lead Converted", desc: "Ananya Kapoor moved to Completed.", time: "1h ago", icon: CheckCircle2, color: "text-emerald-600", bg: "bg-emerald-600/10" },
+                    { title: "System Update", desc: "EWAG Dashboard v2.1 is now live.", time: "4h ago", icon: Layers, color: "text-blue-600", bg: "bg-blue-600/10" },
+                  ].map((notif, i) => (
+                    <div key={i} className="p-4 hover:bg-ink/[0.02] border-b border-ink/5 last:border-0 cursor-pointer group transition-colors">
+                      <div className="flex gap-3">
+                        <div className={`h-8 w-8 rounded-lg ${notif.bg} flex items-center justify-center ${notif.color}`}>
+                          <notif.icon className="h-4 w-4" />
+                        </div>
+                        <div className="flex-1">
+                          <div className="text-xs font-bold text-ink group-hover:text-brand transition-colors">{notif.title}</div>
+                          <div className="text-[10px] text-ink/40 line-clamp-1">{notif.desc}</div>
+                          <div className="text-[9px] font-medium text-ink/20 mt-1">{notif.time}</div>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                <div className="p-3 bg-ink/[0.01] text-center border-t border-ink/5">
+                  <button className="text-[10px] font-bold text-ink/40 hover:text-ink transition-colors" onClick={() => navigate("/admin/consultations")}>View all activity</button>
+                </div>
+              </DropdownMenuContent>
+            </DropdownMenu>
             <div className="h-8 w-px bg-ink/10 mx-2" />
             <div className="flex items-center gap-3">
               <div className="text-right">
